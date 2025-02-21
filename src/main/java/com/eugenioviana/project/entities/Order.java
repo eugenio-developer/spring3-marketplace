@@ -28,22 +28,30 @@ public class Order implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	private Instant moment;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "client_id")
 	private User client;
-	
+
 	private Integer orderStatus;
-	
+
 	@OneToMany (mappedBy = "id.order")
 	private Set<OrderItem> items = new HashSet<>();
-	
+
 	@OneToOne (mappedBy = "order", cascade = CascadeType.ALL)
 	private Payment payment;
-	
+
+	public Double getTotal() {
+		double sum = items.stream()
+                .mapToDouble(x -> x.getSubTotal())
+                .sum();
+
+		return sum;
+	}
+
 	public Order() {
 	}
 	public Order(Long id, Instant moment, User client, OrderStatus orderStatus) {
@@ -52,8 +60,8 @@ public class Order implements Serializable{
 		this.client = client;
 		setOrderStatus(orderStatus);
 	}
-	
-	
+
+
 	public Payment getPayment() {
 		return payment;
 	}

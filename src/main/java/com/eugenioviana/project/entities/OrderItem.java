@@ -21,6 +21,10 @@ public class OrderItem implements Serializable{
 	private Integer quantity;
 	private Double price;
 	
+	public Double getSubTotal() {
+		return price * quantity;
+	}
+	
 	public OrderItem() {
 	}
 
