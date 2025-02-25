@@ -62,3 +62,9 @@ O modelo de domínio da aplicação é composto pelas seguintes entidades:
 
 ## Considerações Finais
 Este projeto foi desenvolvido com foco em seguir as melhores práticas de desenvolvimento, garantindo um código limpo, organizado e fácil de manter. A integração de tecnologias como SpringBoot, JPA e Hibernate, além do uso de princípios SOLID e tratamento de exceções personalizadas, contribui para a robustez e escalabilidade da aplicação.
+
+
+![image](https://github.com/user-attachments/assets/8431f9b6-0e82-4456-ba54-006254ef9102)
+![image](https://github.com/user-attachments/assets/c2e293e1-f541-4789-bb16-7b991a6e2dc6)
+
+
